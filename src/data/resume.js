@@ -16,7 +16,7 @@ const TIMELINE = [
     org: 'FreeWheel Comcast · Singapore',
     pts: [
       'Created APAC Revenue Dashboard using Excel, Looker, and SQL',
-      'Automated weekly revenue data reporting pipeline — saved ~5 hrs/week',
+      'Automated weekly revenue data reporting pipeline',
       'Oversaw all International Marketing campaigns across APAC region (8+ countries)',
     ],
   },
