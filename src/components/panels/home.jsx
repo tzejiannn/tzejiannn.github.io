@@ -18,10 +18,9 @@ export default function Home({ onNavigate }) {
 
         {/* Keyword tags — TODO: update to reflect your actual focus areas */}
         <div className="hero-tags">
-          <span className="hero-tag hi">Machine Learning</span>
-          <span className="hero-tag hi">NLP</span>
-          <span className="hero-tag">Data Engineering</span>
-          <span className="hero-tag">MLOps</span>
+          <span className="hero-tag hi">Data Science</span>
+          <span className="hero-tag">Computer Vision</span>
+          <span className="hero-tag">Data Analysis</span>
           <span className="hero-tag">Python</span>
         </div>
 
