@@ -1,22 +1,17 @@
-// App.jsx
-// The root component. Controls which panel is visible
-// and connects the sidebar navigation to the panel display.
-
 import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 
-// Layout components
-import Sidebar from './components/Sidebar'
+import Sidebar    from './components/Sidebar'
+import Home       from './components/panels/Home'
+import Projects   from './components/panels/Projects'
+import Skills     from './components/panels/Skills'
+import Resume     from './components/panels/Resume'
+import Blog       from './components/panels/Blog'
+import Contact    from './components/panels/Contact'
 
-// All six panel components
-import Home     from './components/panels/Home'
-import Projects from './components/panels/Projects'
-import Skills   from './components/panels/Skills'
-import Resume   from './components/panels/Resume'
-import Blog     from './components/panels/Blog'
-import Contact  from './components/panels/Contact'
+// Individual project page template
+import ProjectPage from './pages/projects/ProjectPage'
 
-// Maps each nav ID to its panel component.
-// When active changes, React renders the matching component.
 const PANELS = {
   home:     Home,
   projects: Projects,
@@ -27,25 +22,39 @@ const PANELS = {
 }
 
 export default function App() {
-
-  // Tracks which panel is currently showing.
-  // Starts on 'home' when the page first loads.
   const [active, setActive] = useState('home')
-
-  // Look up the component for the current active panel
   const Panel = PANELS[active]
 
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+    <Routes>
 
-      {/* Sidebar gets the active panel name and a function to change it */}
-      <Sidebar active={active} onChange={setActive} />
+      {/* Main portfolio layout — sidebar + panels */}
+      <Route
+        path="/"
+        element={
+          <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+            <Sidebar active={active} onChange={setActive} />
+            <main id="main">
+              <Panel onNavigate={setActive} />
+            </main>
+          </div>
+        }
+      />
 
-      {/* Main area renders whichever panel is currently active */}
-      <main id="main">
-        <Panel onNavigate={setActive} />
-      </main>
+      {/* Individual project pages — no sidebar, full width */}
+      <Route
+        path="/projects/:slug"
+        element={
+          <div style={{
+            minHeight: '100vh',
+            background: 'var(--navy)',
+            overflowY: 'auto'
+          }}>
+            <ProjectPage />
+          </div>
+        }
+      />
 
-    </div>
+    </Routes>
   )
 }

@@ -1,46 +1,24 @@
-// projects.js
-// All your project data lives here.
-// To add a new project, copy one object and fill in your details.
-// To remove a project, delete the whole object including the { }.
-
 const PROJECTS = [
   {
     num: '01',
-
-    // The title shown in the collapsed row
+    slug: 'hdb-resale-price-predictor',
     name: 'HDB Resale Price Predictor',
-
-    // One line summary shown under the title
     tagline: 'End-to-end gradient boosting pipeline on 50k+ HDB transactions, deployed as a live Streamlit app.',
-
-    // Badge colour — choose from: 'badge-ml', 'badge-nlp', 'badge-viz', 'badge-eng'
     badge: 'badge-ml',
-
-    // Text inside the badge
     badgeLabel: 'Machine Learning',
-
-    // Year shown on the right
     year: '2024',
-
-    // Full description shown when the row is expanded
     desc: `Full ML pipeline on 50,000+ HDB transaction records from data.gov.sg.
 Engineered 24 features (MRT proximity, floor level, storey range, lease remaining),
 tuned hyperparameters with Optuna, and deployed with SHAP per-prediction explanations.
 The live Streamlit app lets anyone estimate resale value and see which features drove the price.`,
-
-    // Key results shown as green chips
     metrics: ['R² 0.940', 'RMSE $28k', '50k+ rows', '24 features', 'Live demo'],
-
-    // Technologies used
     stack: ['Python', 'XGBoost', 'Pandas', 'Optuna', 'SHAP', 'Streamlit', 'data.gov.sg'],
-
-    // TODO: Replace with your real GitHub and demo URLs
-    // Set demo to null if there is no live demo
     gh: '#',
     demo: '#',
   },
   {
     num: '02',
+    slug: 'sentiment-analysis-sg-reddit',
     name: 'Sentiment Analysis on SG Reddit',
     tagline: 'Fine-tuned DistilBERT on 8k labelled r/singapore posts, with interactive trend dashboard.',
     badge: 'badge-nlp',
@@ -57,6 +35,7 @@ over time, filterable by topic and date range.`,
   },
   {
     num: '03',
+    slug: 'customer-churn-dashboard',
     name: 'Customer Churn Dashboard',
     tagline: 'Churn prediction with SHAP explainability — interactive Dash dashboard for stakeholders.',
     badge: 'badge-eng',
@@ -73,6 +52,7 @@ Improved campaign targeting precision from 42% to 67%.`,
   },
   {
     num: '04',
+    slug: 'covid-singapore-visualisation',
     name: 'COVID-19 Singapore Visualisation',
     tagline: 'D3 choropleth tracking COVID stats across 55 planning areas. Static, fast, zero backend.',
     badge: 'badge-viz',

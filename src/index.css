@@ -1103,3 +1103,123 @@ hr.rule {
   .tl-row             { grid-template-columns: 1fr; gap: .5rem; }
   .blog-card          { grid-template-columns: 1fr; gap: .6rem; }
 }
+
+/* ============================================
+   MARKDOWN BODY
+   Styles for the rendered markdown content
+   on individual project pages.
+   ============================================ */
+
+.md-body {
+  font-size: .88rem;
+  color: var(--text-2);
+  line-height: 1.85;
+}
+
+/* Headings */
+.md-body h1 { display: none; } /* hide h1 since we show the title above */
+.md-body h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 2rem 0 .75rem;
+  letter-spacing: -.01em;
+}
+.md-body h3 {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 1.5rem 0 .5rem;
+}
+
+/* Paragraphs */
+.md-body p {
+  margin-bottom: 1.1rem;
+}
+
+/* Bold text */
+.md-body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Bullet point lists */
+.md-body ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+.md-body ul li {
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+/* Numbered lists */
+.md-body ol {
+  padding-left: 1.25rem;
+  margin-bottom: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+.md-body ol li {
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+/* Inline code e.g. `variable_name` */
+.md-body code {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: .82em;
+  background: var(--navy-3);
+  color: var(--green);
+  padding: .15rem .4rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+/* Code blocks */
+.md-body pre {
+  background: var(--navy-3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1.1rem;
+}
+.md-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: .8rem;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+/* Horizontal rule */
+.md-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Links */
+.md-body a {
+  color: var(--green);
+  border-bottom: 1px solid rgba(0,229,160,.3);
+  transition: border-color .2s;
+}
+.md-body a:hover {
+  border-color: var(--green);
+}
+
+/* Blockquotes */
+.md-body blockquote {
+  border-left: 2px solid var(--green);
+  padding-left: 1rem;
+  color: var(--text-3);
+  font-style: italic;
+  margin: 1.5rem 0;
+}
