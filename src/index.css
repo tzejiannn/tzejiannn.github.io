@@ -1223,3 +1223,27 @@ hr.rule {
   font-style: italic;
   margin: 1.5rem 0;
 }
+
+/* ============================================
+   CYCLING WORD ANIMATION
+   The coloured word in the hero heading
+   fades out, changes, then fades back in.
+   ============================================ */
+
+.cycle-word {
+  display: inline-block;
+  color: var(--green);
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+/* Visible state */
+.cycle-word.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hidden state — fades out and shifts down slightly before swapping */
+.cycle-word.hidden {
+  opacity: 0;
+  transform: translateY(6px);
+}

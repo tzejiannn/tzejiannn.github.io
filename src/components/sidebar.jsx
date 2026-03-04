@@ -48,13 +48,8 @@ export default function Sidebar({ active, onChange }) {
       {/* ── Top: avatar, name, role ── */}
       <div className="sb-identity">
 
-        {/* TODO: Replace "YN" with your real initials.
-            To use a photo instead, replace this div with:
-            <img src="/photo.jpg" className="sb-avatar" alt="Your Name" /> */}
-        <div className="sb-avatar">YN</div>
-
         {/* TODO: Replace with your real name */}
-        <div className="sb-name">Your Name</div>
+        <div className="sb-name">Joel Ang Tze Jian</div>
 
         {/* TODO: Replace with your real role and location */}
         <div className="sb-role">Data Scientist · Singapore</div>
