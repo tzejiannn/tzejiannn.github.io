@@ -54,7 +54,7 @@ export default function ProjectPage() {
   }
 
   return (
-    <div style={{ maxWidth: '720px', margin: '0 auto', padding: '3rem 2rem 5rem', fontFamily: 'var(--body)', color: 'var(--text)' }}>
+    <div style={{ maxWidth: '1300px', margin: '0 auto', padding: '3rem 2rem 5rem', fontFamily: 'var(--body)', color: 'var(--text)' }}>
 
       {/* Back button */}
       <Link to="/" style={{ fontSize: '.78rem', color: 'var(--text-2)', display: 'inline-flex', alignItems: 'center', gap: '.35rem', marginBottom: '2.5rem', borderBottom: '1px solid var(--border)', paddingBottom: '1px', textDecoration: 'none' }}>

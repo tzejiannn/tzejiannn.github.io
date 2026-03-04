@@ -1,6 +1,9 @@
 import POSTS from '../../data/blog'
+import { useNavigate } from 'react-router-dom'
 
 export default function Blog() {
+  const navigate = useNavigate()
+
   return (
     <section className="panel active" id="panel-blog">
 
@@ -14,7 +17,12 @@ export default function Blog() {
       <div className="blog-list p-anim">
         {POSTS.map((post, i) => {
           return (
-            <div key={i} className="blog-card">
+            <div
+              key={i}
+              className="blog-card"
+              onClick={() => navigate(`/blog/${post.slug}`)}
+              style={{ cursor: 'pointer' }}
+            >
               <span className={`blog-card-tag proj-type-badge ${post.tag}`}>
                 {post.tagLabel}
               </span>

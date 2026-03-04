@@ -1,16 +1,15 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-import Sidebar    from './components/Sidebar'
-import Home       from './components/panels/Home'
-import Projects   from './components/panels/Projects'
-import Skills     from './components/panels/Skills'
-import Resume     from './components/panels/Resume'
-import Blog       from './components/panels/Blog'
-import Contact    from './components/panels/Contact'
-
-// Individual project page template
+import Sidebar     from './components/Sidebar'
+import Home        from './components/panels/Home'
+import Projects    from './components/panels/Projects'
+import Skills      from './components/panels/Skills'
+import Resume      from './components/panels/Resume'
+import Blog        from './components/panels/blog'
+import Contact     from './components/panels/contact'
 import ProjectPage from './pages/projects/ProjectPage'
+import BlogPost    from './pages/blog/BlogPost'
 
 const PANELS = {
   home:     Home,
@@ -28,7 +27,7 @@ export default function App() {
   return (
     <Routes>
 
-      {/* Main portfolio layout — sidebar + panels */}
+      {/* Main portfolio — sidebar + panels */}
       <Route
         path="/"
         element={
@@ -41,16 +40,22 @@ export default function App() {
         }
       />
 
-      {/* Individual project pages — no sidebar, full width */}
+      {/* Individual project pages */}
       <Route
         path="/projects/:slug"
         element={
-          <div style={{
-            minHeight: '100vh',
-            background: 'var(--navy)',
-            overflowY: 'auto'
-          }}>
+          <div style={{ minHeight: '100vh', background: 'var(--navy)', overflowY: 'auto' }}>
             <ProjectPage />
+          </div>
+        }
+      />
+
+      {/* Individual blog post pages */}
+      <Route
+        path="/blog/:slug"
+        element={
+          <div style={{ minHeight: '100vh', background: 'var(--navy)', overflowY: 'auto' }}>
+            <BlogPost />
           </div>
         }
       />
