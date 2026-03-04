@@ -77,20 +77,19 @@ export default function Contact() {
 
           <div className="contact-links-list">
 
-            {/* TODO: Replace all href values with your real links */}
 
-            <a href="mailto:you@email.com" className="contact-link-item">
+            <a href="mailto:tzejiannn@gmail.com" className="contact-link-item">
               <div className="cli-icon">✉</div>
               <div>
                 <div className="cli-label">Email</div>
                 {/* TODO: Replace with your real email */}
-                <div className="cli-val">yourname@email.com</div>
+                <div className="cli-val">tzejiannn@gmail.com</div>
               </div>
               <span className="cli-arrow">{'→'}</span>
             </a>
 
             <a
-              href="#"
+              href="github.com/tzejiannn"
               target="_blank"
               rel="noreferrer"
               className="contact-link-item"
@@ -98,14 +97,14 @@ export default function Contact() {
               <div className="cli-icon">GH</div>
               <div>
                 <div className="cli-label">GitHub</div>
-                {/* TODO: Replace with your real GitHub URL */}
-                <div className="cli-val">github.com/yourusername</div>
+        
+                <div className="cli-val">github.com/tzejiannn</div>
               </div>
               <span className="cli-arrow">{'→'}</span>
             </a>
 
             <a
-              href="#"
+              href="linkedin.com/in/tzejian"
               target="_blank"
               rel="noreferrer"
               className="contact-link-item"
@@ -113,14 +112,13 @@ export default function Contact() {
               <div className="cli-icon">in</div>
               <div>
                 <div className="cli-label">LinkedIn</div>
-                {/* TODO: Replace with your real LinkedIn URL */}
-                <div className="cli-val">linkedin.com/in/yourprofile</div>
+                <div className="cli-val">linkedin.com/in/tzejian</div>
               </div>
               <span className="cli-arrow">{'→'}</span>
             </a>
 
             <a
-              href="#"
+              href="kaggle.com/joelangtzejian"
               target="_blank"
               rel="noreferrer"
               className="contact-link-item"
@@ -128,8 +126,7 @@ export default function Contact() {
               <div className="cli-icon">K</div>
               <div>
                 <div className="cli-label">Kaggle</div>
-                {/* TODO: Replace with your real Kaggle URL */}
-                <div className="cli-val">kaggle.com/yourusername</div>
+                <div className="cli-val">kaggle.com/joelangtzejian</div>
               </div>
               <span className="cli-arrow">{'→'}</span>
             </a>

@@ -297,7 +297,7 @@ button {
 .panel {
   display: none;
   padding: 3rem 3.5rem 5rem;
-  max-width: 900px;
+  max-width: 1300px;
 }
 
 /* The active panel is shown and fades in */

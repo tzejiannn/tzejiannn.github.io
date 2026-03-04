@@ -93,14 +93,6 @@ export default function Sidebar({ active, onChange }) {
           <div className="avail-dot" />
           Open to opportunities
         </div>
-
-        {/* TODO: Replace # with your real profile URLs */}
-        <div className="sb-links">
-          <a href="#" target="_blank" className="sb-link">GH</a>
-          <a href="#" target="_blank" className="sb-link">in</a>
-          <a href="#" target="_blank" className="sb-link">K</a>
-        </div>
-
       </div>
 
     </aside>

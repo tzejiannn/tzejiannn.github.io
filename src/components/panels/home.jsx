@@ -54,15 +54,6 @@ export default function Home({ onNavigate }) {
         {/* Decorative green glow blob in the top right corner */}
         <div className="hero-glow" />
 
-        {/* Keyword tags — TODO: update to reflect your actual focus areas */}
-        <div className="hero-tags">
-          <span className="hero-tag hi">Machine Learning</span>
-          <span className="hero-tag hi">NLP</span>
-          <span className="hero-tag">Data Engineering</span>
-          <span className="hero-tag">MLOps</span>
-          <span className="hero-tag">Python</span>
-        </div>
-
         {/* Main heading with cycling word */}
         <h1 className="page-title">
           {/* TODO: replace Joel with your real name */}
@@ -107,27 +98,7 @@ export default function Home({ onNavigate }) {
         </div>
 
       </div>
-
-      {/* Stats strip
-          TODO: replace with your real numbers */}
-      <div className="hero-stats p-anim">
-        <div className="stat-block">
-          <div className="stat-val">8+</div>
-          <div className="stat-lbl">Projects</div>
-        </div>
-        <div className="stat-block">
-          <div className="stat-val">4.3</div>
-          <div className="stat-lbl">GPA / 5.0</div>
-        </div>
-        <div className="stat-block">
-          <div className="stat-val">3 yr</div>
-          <div className="stat-lbl">Experience</div>
-        </div>
-        <div className="stat-block">
-          <div className="stat-val">SG</div>
-          <div className="stat-lbl">Based in</div>
-        </div>
-      </div>
+      
 
     </section>
   )
