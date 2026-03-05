@@ -1,16 +1,11 @@
-// Home.jsx
-// The first panel users see when they land on your portfolio.
-// Contains your intro tags, heading with cycling words, bio, CTA buttons,
-// and stats strip.
-
 import { useState, useEffect } from 'react'
 
-// TODO: update this list with words relevant to your own career
 const CYCLING_WORDS = [
   'Data Scientist.',
+  'Quantitative Finance.',
   'ML Engineer.',
   'Problem Solver.',
-  'Computer Vision Enthusiast.',
+  'Computer Vision Dev.',
   'Student Athlete',
   'Data Storyteller.',
 ]
@@ -56,7 +51,6 @@ export default function Home({ onNavigate }) {
 
         {/* Main heading with cycling word */}
         <h1 className="page-title">
-          {/* TODO: replace Joel with your real name */}
           Hi, I'm Joel.<br />
           <em>
             {/* Static prefix */}
@@ -73,12 +67,11 @@ export default function Home({ onNavigate }) {
         {/* Bio paragraph
             TODO: update with your real bio */}
         <p className="hero-desc">
-          Final-year Data Science undergraduate at{' '}
-          <strong>NUS</strong>, graduating May 2026.
-          I build ML systems that go beyond the notebook — from messy raw
-          data to deployed, explainable models. Most interested in NLP,
-          model interpretability, and closing the gap between research
-          and production.
+          Final-year <strong>Data Science & Analytics</strong> undergraduate
+          at NUS with a Minor in Quantitative Finance, graduating Dec 2026.
+          Currently interning at <strong>FreeWheel Comcast</strong> building
+          APAC data pipelines and dashboards. Passionate about ML, computer vision, and
+          applying data science to financial markets.
         </p>
 
         {/* CTA buttons */}

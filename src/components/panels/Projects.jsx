@@ -17,8 +17,8 @@ export default function Projects() {
       <h2 className="sec-title p-anim">Projects</h2>
 
       <p className="lead p-anim" style={{ marginBottom: '2rem' }}>
-        ML, NLP, and visualisation projects — mostly using real
-        Singapore datasets. Click any project to read more.
+        Projects I've had the pleasure of working on. 
+        Click any project to read more.
       </p>
 
       <div className="projects-list p-anim">
