@@ -1,88 +1,82 @@
 // resume.js
-// Your work experience and education timeline,
-// plus awards, certifications, and activities.
+// Split into EXPERIENCE and EDUCATION for cleaner display.
 
-// Timeline entries — shown in order, most recent first
-const TIMELINE = [
+const EXPERIENCE = [
   {
-    // 'work' shows a green dot, 'edu' shows a blue dot
     type: 'work',
-
-    // Date range shown on the left
-    period: 'Jan – Jun 2026',
-
-    // Job title or degree name
+    period: 'Jan 2026 – Jun 2026',
     role: 'Data Analyst Intern',
     org: 'FreeWheel Comcast · Singapore',
     pts: [
-      'Created APAC Revenue Dashboard using Excel, Looker, and SQL',
-      'Automated weekly revenue data reporting pipeline',
-      'Oversaw all International Marketing campaigns across APAC region (8+ countries)',
+      'Architected and deployed the first end-to-end data architecture for the APAC region using Python, PowerBI, Looker and Excel',
+      'Engineered scalable ETL processes reducing manual processing time by 75%',
+      'Integrated automated pipelines and interactive dashboards to translate complex datasets into actionable insights for executive leadership',
+      'Oversaw all International Marketing data requirements for the APAC region',
     ],
   },
-
-  {
-    type: 'edu',
-    period: 'Winter 2024',
-    role: 'Exchange Student',
-    org: 'University of California, Santa Barbara',
-    pts: [
-      'Coursework in Regressional Analysis, Mathematical Finance and Optimisation',
-    ],
-  },
-
   {
     type: 'work',
-    period: 'Aug – Dec 2024',
+    period: 'Aug 2024 – Dec 2024',
     role: 'Business Analyst Intern',
     org: 'Accenture · Singapore',
     pts: [
-      'Resolved 40+ data incidents and supported 10+ deployments using Pega and Excel, strengthening data integrity and minimising operational disruption',
-      'Led UAT and stakeholder workshops for 2 high-volume data initiatives, translating business needs into clear requirements and accelerating Agile delivery',
-      'Drove user adoption through rapid UI prototyping and standardised documentation, improving system usability and knowledge accessibility',
+      'Strengthened data integrity by resolving 40+ incidents and supporting 10+ production deployments using Pega and Excel',
+      'Led UAT and stakeholder workshops for 2 high-volume data initiatives, translating business needs into clear requirements',
+      'Drove user adoption through rapid UI prototyping and standardised documentation',
+    ],
+  },
+]
+
+const EDUCATION = [
+  {
+    type: 'edu',
+    period: '2022 – 2026',
+    role: 'B.Sc. Data Science & Analytics (Honours)',
+    org: 'National University of Singapore',
+    pts: [
+      'CGPA 4.25 — Honours: Distinction',
+      'Minor in Quantitative Finance, Faculty of Science',
+      'Relevant courses: Data Structures & Algorithms, Machine Learning, Investment Instruments & Risk Management',
+      'Expected Graduation: Dec 2026',
     ],
   },
   
   {
     type: 'edu',
-    period: '2022 – 2026',
-    role: 'B.Sc. (Hons) Data Science & Analytics, Minor in Quantitative Finance',
-    org: 'National University of Singapore',
+    period: 'Dec 2024 – Apr 2025',
+    role: 'Student Exchange Program',
+    org: 'University of California, Santa Barbara',
     pts: [
-      "CAP 4.3 / 5.0",
-      'Modules: Numerical Computation, Exploratory Data Analysis, Data Cleaning, Data Visualisation, Data Structures & Algorithms, Machine Learning, Investment Instruments & Risk Management',
-      'FYP: "to be included',
+      'Relevant courses: Regression Analysis, Mathematical Finance, Optimisation',
     ],
-  },
+  }
 ]
 
-// Three columns below the timeline
-// TODO: Replace all items with your real awards, certs, and activities
 const ASIDE = [
   {
     label: 'Awards',
     items: [
-      "Dean's List AY2023/24 S1",
-      'Shopee DS Competition — Top 20',
-      'Orbital — Apollo 11',
+      'Honours: Distinction',
+      'CGPA 4.25 / 5.0',
+      'UCSB Exchange Program',
     ],
   },
   {
     label: 'Certifications',
     items: [
-      'AWS Cloud Practitioner',
-      'Google Data Analytics',
-      'DeepLearning.AI MLS',
+      'Python — Advanced',
+      'SQL — Advanced',
+      'PowerBI — Intermediate',
     ],
   },
   {
     label: 'Activities',
     items: [
-      'Ultimate Frisbee National Team Youth Program — Team Manager 2023 - Present',
-      'NUS Varsity Ultimate Frisbee - Captain 2023/24',
-      'Ultimate Frisbee Under-24 National Team - Captain 2022/23',
+      'Ultimate Frisbee National Team — Team Manager',
+      'NUS Varsity Frisbee — Captain 2023/24',
+      'U-24 National Team — Captain 2022/23',
     ],
   },
 ]
 
-export { TIMELINE, ASIDE }
+export { EXPERIENCE, EDUCATION, ASIDE }

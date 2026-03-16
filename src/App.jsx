@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-import Sidebar     from './components/Sidebar'
-import Home        from './components/panels/Home'
+import Sidebar     from './components/sidebar'
+import Home        from './components/panels/home'
 import Projects    from './components/panels/Projects'
-import Skills      from './components/panels/Skills'
 import Resume      from './components/panels/Resume'
 import Blog        from './components/panels/blog'
 import Contact     from './components/panels/contact'
@@ -14,7 +13,6 @@ import BlogPost    from './pages/blog/BlogPost'
 const PANELS = {
   home:     Home,
   projects: Projects,
-  skills:   Skills,
   resume:   Resume,
   blog:     Blog,
   contact:  Contact,
