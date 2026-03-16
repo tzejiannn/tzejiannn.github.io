@@ -82,22 +82,10 @@ export default function Projects() {
                     >
                       Read more
                     </button>
-                    {p.gh && (
-                      <a href={p.gh} target="_blank" rel="noreferrer" className="p-link" onClick={(e) => e.stopPropagation()}>
-                        GitHub
-                      </a>
-                    )}
-                    {p.demo && (
-                      <a href={p.demo} target="_blank" rel="noreferrer" className="p-link" onClick={(e) => e.stopPropagation()}>
-                        Live demo
-                      </a>
-                    )}
                   </div>
-
                 </div>
               </div>
             </div>
-
           </div>
         ))}
       </div>

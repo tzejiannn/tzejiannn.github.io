@@ -1,53 +1,33 @@
-// ProjectPage.jsx
-// Renders an individual project page.
-// Reads the slug from the URL, finds the matching project in projects.js,
-// and loads the matching .md file from src/data/projects/
-
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import ReactMarkdown from 'react-markdown'
 import PROJECTS from '../../data/projects'
-
-// This line tells Vite to find all .md files in src/data/projects/
-// at build time so they can be loaded dynamically at runtime
 const MD_FILES = import.meta.glob('../../data/projects/*.md', { query: '?raw', import: 'default' })
 
 export default function ProjectPage() {
 
-  // Read the slug from the URL e.g. /projects/hdb-resale-price-predictor
   const { slug } = useParams()
-
-  // Find the matching project object from projects.js
   const project = PROJECTS.find(p => p.slug === slug)
-
-  // content holds the raw markdown text once it loads
   const [content, setContent] = useState('')
-
-  // loading tracks whether the markdown file is still being fetched
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Build the path to the markdown file for this slug
     const path = `../../data/projects/${slug}.md`
     const loader = MD_FILES[path]
 
     if (loader) {
-      // Load the markdown file and store its text in content
       loader().then(text => {
         setContent(text)
         setLoading(false)
       })
     } else {
-      // No markdown file found for this slug
       setLoading(false)
     }
   }, [slug])
-
-  // Show not found if the project doesn't exist in projects.js
   if (!project) {
     return (
       <div style={{ padding: '4rem', color: 'var(--text-2)', fontFamily: 'var(--body)' }}>
-        <p style={{ marginBottom: '1rem' }}>Project not found.</p>
+        <p style={{ marginBottom: '1rem' }}>Oops, page still under construction.</p>
         <Link to="/" style={{ color: 'var(--green)' }}>Go back home</Link>
       </div>
     )
@@ -104,23 +84,12 @@ export default function ProjectPage() {
           <ReactMarkdown>{content}</ReactMarkdown>
         </div>
       ) : (
-        // Fallback if no .md file exists yet for this project
         <p style={{ color: 'var(--text-2)', fontSize: '.88rem', lineHeight: 1.8 }}>
           {project.desc}
         </p>
       )}
 
       <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '2.5rem 0' }} />
-
-      {/* GitHub and demo links */}
-      <div style={{ display: 'flex', gap: '.75rem' }}>
-        {project.gh && (
-          <a href={project.gh} target="_blank" rel="noreferrer" className="p-link primary">View on GitHub</a>
-        )}
-        {project.demo && (
-          <a href={project.demo} target="_blank" rel="noreferrer" className="p-link">Live demo</a>
-        )}
-      </div>
 
     </div>
   )
