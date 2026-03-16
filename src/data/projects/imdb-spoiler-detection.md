@@ -324,10 +324,6 @@ long-range dependencies, or negation.
 
 *Figure 18 — Results Summary*
 
-![Problem Statement](/imdb/imdb_roc_all.png)
-
-*Figure 19 — Comparison of ROC Score*
-
 Random Forest achieved the best overall performance. Logistic regression
 relies on linear decision boundaries and struggles to capture complex
 feature interactions. XGBoost may have overfit the small feature set,
