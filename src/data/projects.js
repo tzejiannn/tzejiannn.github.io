@@ -124,7 +124,7 @@ const PROJECTS = [
           drawers, individual project and blog post pages powered by Markdown, and full
           mobile responsiveness. Deployed on GitHub Pages with automated deployment via
           gh-pages.`,
-    metrics: ['6 panels', 'React Router', 'Markdown blog', 'Mobile responsive', 'GitHub Pages'],
+    metrics: ['5 panels', 'React Router', 'Markdown blog', 'Mobile responsive', 'GitHub Pages'],
     stack: ['React', 'Vite', 'JavaScript', 'CSS', 'React Router', 'GitHub Pages'],
     gh: 'https://github.com/tzejiannn/tzejiannn.github.io',
     demo: 'https://tzejiannn.github.io',

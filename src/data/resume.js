@@ -52,31 +52,43 @@ const EDUCATION = [
   }
 ]
 
-const ASIDE = [
+
+const LEADERSHIP = [
   {
-    label: 'Awards',
-    items: [
-      'Honours: Distinction',
-      'CGPA 4.25 / 5.0',
-      'UCSB Exchange Program',
+    type: 'leadership',
+    period: '2023 – Present',
+    role: 'Team Manager',
+    org: 'Ultimate Frisbee National Team Youth Program',
+    pts: [
+      'Oversee all logistics, administrative work, and management of players for the National Youth Training Programme',
     ],
   },
   {
-    label: 'Certifications',
-    items: [
-      'Python — Advanced',
-      'SQL — Advanced',
-      'PowerBI — Intermediate',
+    type: 'leadership',
+    period: '2024 – 2025',
+    role: 'Coach',
+    org: 'Eusoff Hall Ultimate Frisbee',
+    pts: ['Coached the Eusoff Hall Ultimate Frisbee team to a Championship win at the Inter-Hall Games 2025',
     ],
   },
   {
-    label: 'Activities',
-    items: [
-      'Ultimate Frisbee National Team — Team Manager',
-      'NUS Varsity Frisbee — Captain 2023/24',
-      'U-24 National Team — Captain 2022/23',
+    type: 'leadership',
+    period: '2023 – 2024',
+    role: 'Captain',
+    org: 'NUS Varsity Ultimate Frisbee',
+    pts: [
+      'Led the varsity team through the 2023/24 season — training, strategy, and player development',
+    ],
+  },
+  {
+    type: 'leadership',
+    period: '2022 – 2023',
+    role: 'Captain',
+    org: 'Ultimate Frisbee Under-24 National Team',
+    pts: [
+      'Captained the Singapore U-24 National Team at the World Ultimate Under-24 Championships',
     ],
   },
 ]
 
-export { EXPERIENCE, EDUCATION, ASIDE }
+export { EXPERIENCE, EDUCATION, LEADERSHIP }
