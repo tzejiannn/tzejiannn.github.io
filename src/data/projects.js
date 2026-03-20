@@ -112,7 +112,7 @@ const PROJECTS = [
   },
   {
     num: '07',
-    slug: 'portfolio-website',
+    slug: 'website',
     name: 'Personal Portfolio Website',
     tagline: 'Designed and built a fully custom portfolio from scratch using React, Vite, and custom CSS — deployed on GitHub Pages.',
     badge: 'badge-eng',

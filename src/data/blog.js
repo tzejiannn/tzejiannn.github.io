@@ -11,7 +11,14 @@
 
 
 const POSTS = [
-
+ {tag: 'badge-ml',
+    tagLabel: 'Machine Learning',
+    date: 'Mar 2025',
+    read: '10 min',
+    slug: 'forecasting',
+    title: 'Becoming a Psychic Revenue Wizard',
+    excerpt: "How I overhauled my company's revenue forecasting system, and what I've learnt from it."
+  },
 ]
 
 export default POSTS

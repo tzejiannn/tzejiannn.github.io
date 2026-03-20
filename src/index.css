@@ -1376,3 +1376,55 @@ hr.rule {
 
 /* Orange dot for Leadership */
 .resume-section-dot.leadership { background: #fb923c; }
+
+/* ── Markdown tables ── */
+.md-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: .82rem;
+}
+
+.md-body th {
+  background: var(--navy-3);
+  color: var(--green);
+  font-weight: 600;
+  font-size: .7rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .6rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.md-body td {
+  padding: .55rem 1rem;
+  color: var(--text-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.md-body tr:hover td {
+  background: rgba(255,255,255,.03);
+  color: var(--text);
+}
+
+.md-body tr:last-child td {
+  border-bottom: none;
+}
+
+/* Page Transitions */
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: pageEnter .35s var(--ease) both;
+}
