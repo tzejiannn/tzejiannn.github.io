@@ -11,7 +11,7 @@
 
 
 const POSTS = [
- {tag: 'badge-ml',
+ {tag: 'badge-blue',
     tagLabel: 'Machine Learning',
     date: 'Mar 2025',
     read: '10 min',

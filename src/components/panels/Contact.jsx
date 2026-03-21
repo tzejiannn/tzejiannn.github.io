@@ -59,7 +59,6 @@ export default function Contact() {
     <section className="panel active" id="panel-contact">
 
       {/* Panel heading */}
-      <div className="section-eyebrow p-anim">Say hello</div>
       <h2 className="sec-title p-anim">Contact</h2>
 
       <div className="contact-grid p-anim">

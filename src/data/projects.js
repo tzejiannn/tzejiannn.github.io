@@ -1,11 +1,49 @@
 const PROJECTS = [
   {
     num: '01',
+    slug: 'freewheel-apac-data-architecture',
+    name: 'APAC Data Architecture — FreeWheel',
+    tagline: 'First end-to-end data pipeline for FreeWheel APAC — automated ETL, PowerBI dashboards, cutting manual processing by 75%.',
+    badge: 'badge-green',
+    badgeLabel: 'Data Analytics',
+    year: '2026',
+    desc: `Architected and deployed the first and primary end-to-end data architecture
+            for FreeWheel's APAC region. Built automated ETL pipelines using Python and Excel
+            to streamline large-scale data extraction, cleaning, and transformation. Integrated
+            interactive PowerBI and Looker dashboards to translate complex datasets into
+            actionable insights for executive leadership. Reduced manual processing time by
+            75% across the APAC marketing data workflow.`,
+    metrics: ['75% time saved', 'APAC region', 'Automated ETL', 'Executive dashboards'],
+    stack: ['Python', 'PowerBI', 'Looker', 'Excel', 'ETL'],
+    gh: null,
+    demo: null,
+  },
+  {
+    num: '02',
+    slug: 'website',
+    name: 'Personal Portfolio Website',
+    tagline: 'Designed and built a fully custom portfolio from scratch using React, Vite, and custom CSS — deployed on GitHub Pages.',
+    badge: 'badge-purple',
+    badgeLabel: 'Web Development',
+    year: '2026',
+    desc: `Built a fully custom portfolio website from scratch using React and Vite,
+          without any UI component libraries. Features a dark navy design system with a
+          sliding pill sidebar navigation, animated panel transitions, expandable project
+          drawers, individual project and blog post pages powered by Markdown, and full
+          mobile responsiveness. Deployed on GitHub Pages with automated deployment via
+          gh-pages.`,
+    metrics: ['5 panels', 'React Router', 'Markdown blog', 'Mobile responsive', 'GitHub Pages'],
+    stack: ['React', 'Vite', 'JavaScript', 'CSS', 'React Router', 'GitHub Pages'],
+    gh: 'https://github.com/tzejiannn/tzejiannn.github.io',
+    demo: 'https://tzejiannn.github.io',
+  },
+  {
+    num: '03',
     slug: 'imdb-spoiler-detection',
     name: 'IMDb Spoiler Detection',
     tagline: 'ML classifier detecting spoiler reviews across 575k+ IMDb reviews using NLP and behavioural features.',
-    badge: 'badge-nlp',
-    badgeLabel: 'NLP · ML',
+    badge: 'badge-blue',
+    badgeLabel: 'ML / NLP',
     year: '2025',
     desc: `Built a spoiler detection classifier on 575,000+ IMDb reviews combining
             NLP-based text features with behavioural signals. Engineered 5 features including
@@ -19,12 +57,12 @@ const PROJECTS = [
     demo: null,
   },
   {
-    num: '02',
+    num: '04',
     slug: 'frisbee-object-detection',
     name: 'Frisbee Object Detection',
     tagline: 'Custom YOLOv11 model trained on a self-built 507-image dataset — from raw throwing footage to real-time disc detection.',
-    badge: 'badge-nlp',
-    badgeLabel: 'Computer Vision',
+    badge: 'badge-blue',
+    badgeLabel: 'ML / Computer Vision',
     year: '2025',
     desc: `Built a real-time frisbee detection system from scratch — recorded throwing
             videos, extracted frames with OpenCV, annotated 507 images on Roboflow, and
@@ -37,11 +75,11 @@ const PROJECTS = [
     demo: null,
   },
   {
-    num: '03',
+    num: '05',
     slug: 'fixed-income-derivatives-modeling',
     name: 'Fixed Income Derivatives Modeling',
     tagline: 'Custom VBA/Excel UDFs for derivative pricing, term structure modelling, and swap valuation on historical SOFR and LIBOR data.',
-    badge: 'badge-eng',
+    badge: 'badge-orange',
     badgeLabel: 'Quant Finance',
     year: '2025',
     desc: `Built a comprehensive fixed income derivatives toolkit in Excel and VBA.
@@ -56,12 +94,12 @@ const PROJECTS = [
     demo: null,
   },
   {
-    num: '04',
+    num: '06',
     slug: 'option-market-microstructure-analysis',
     name: 'Option Market Microstructure Analysis',
     tagline: 'Cross-sectional analysis of AAPL options across multiple expiry dates — liquidity, bid-ask spreads, volume, and moneyness.',
-    badge: 'badge-ml',
-    badgeLabel: 'Data Analysis',
+    badge: 'badge-orange',
+    badgeLabel: 'Quant Finance x Data Analytics',
     year: '2025',
     desc: `Used Selenium to automate browser interaction and scrape AAPL option chain
             data across multiple expiry dates. Conducted cross-sectional analysis focusing on
@@ -74,12 +112,12 @@ const PROJECTS = [
     demo: null,
   },
   {
-    num: '05',
+    num: '07',
     slug: 'optimising-option-pricing',
     name: 'Optimising Option Pricing with Neural Networks',
     tagline: 'PyTorch neural network approximating option prices using SGD optimisation — benchmarked against Black-Scholes.',
-    badge: 'badge-ml',
-    badgeLabel: 'Machine Learning',
+    badge: 'badge-blue',
+    badgeLabel: 'ML / Deep Learning',
     year: '2025',
     desc: `Engineered a neural network model with PyTorch to approximate option prices,
             utilising a stochastic gradient descent optimisation strategy for error minimisation.
@@ -91,44 +129,7 @@ const PROJECTS = [
     gh: '#',
     demo: null,
   },
-  {
-    num: '06',
-    slug: 'freewheel-apac-data-architecture',
-    name: 'APAC Data Architecture — FreeWheel',
-    tagline: 'First end-to-end data pipeline for FreeWheel APAC — automated ETL, PowerBI dashboards, cutting manual processing by 75%.',
-    badge: 'badge-eng',
-    badgeLabel: 'Data Engineering',
-    year: '2026',
-    desc: `Architected and deployed the first and primary end-to-end data architecture
-            for FreeWheel's APAC region. Built automated ETL pipelines using Python and Excel
-            to streamline large-scale data extraction, cleaning, and transformation. Integrated
-            interactive PowerBI and Looker dashboards to translate complex datasets into
-            actionable insights for executive leadership. Reduced manual processing time by
-            75% across the APAC marketing data workflow.`,
-    metrics: ['75% time saved', 'APAC region', 'Automated ETL', 'Executive dashboards'],
-    stack: ['Python', 'PowerBI', 'Looker', 'Excel', 'ETL'],
-    gh: null,
-    demo: null,
-  },
-  {
-    num: '07',
-    slug: 'website',
-    name: 'Personal Portfolio Website',
-    tagline: 'Designed and built a fully custom portfolio from scratch using React, Vite, and custom CSS — deployed on GitHub Pages.',
-    badge: 'badge-eng',
-    badgeLabel: 'Web Development',
-    year: '2026',
-    desc: `Built a fully custom portfolio website from scratch using React and Vite,
-          without any UI component libraries. Features a dark navy design system with a
-          sliding pill sidebar navigation, animated panel transitions, expandable project
-          drawers, individual project and blog post pages powered by Markdown, and full
-          mobile responsiveness. Deployed on GitHub Pages with automated deployment via
-          gh-pages.`,
-    metrics: ['5 panels', 'React Router', 'Markdown blog', 'Mobile responsive', 'GitHub Pages'],
-    stack: ['React', 'Vite', 'JavaScript', 'CSS', 'React Router', 'GitHub Pages'],
-    gh: 'https://github.com/tzejiannn/tzejiannn.github.io',
-    demo: 'https://tzejiannn.github.io',
-  },
+  
 ]
 
 export default PROJECTS

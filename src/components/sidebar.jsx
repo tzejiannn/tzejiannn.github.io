@@ -90,7 +90,7 @@ export default function Sidebar({ active, onChange }) {
         {/* Pulsing green dot with "open to work" text */}
         <div className="sb-avail">
           <div className="avail-dot" />
-          Open to opportunities
+          Open to Opportunities!
         </div>
       </div>
 

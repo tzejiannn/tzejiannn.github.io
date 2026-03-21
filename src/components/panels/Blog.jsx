@@ -7,7 +7,6 @@ export default function Blog() {
   return (
     <section className="panel active" id="panel-blog">
 
-      <div className="section-eyebrow p-anim">Writing</div>
       <h2 className="sec-title p-anim">Blog</h2>
 
       <p className="lead p-anim" style={{ marginBottom: '2rem' }}>

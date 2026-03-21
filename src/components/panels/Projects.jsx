@@ -13,7 +13,6 @@ export default function Projects() {
   return (
     <section className="panel active" id="panel-projects">
 
-      <div className="section-eyebrow p-anim">Work</div>
       <h2 className="sec-title p-anim">Projects</h2>
 
       <p className="lead p-anim" style={{ marginBottom: '2rem' }}>

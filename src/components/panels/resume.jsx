@@ -38,7 +38,6 @@ export default function Resume() {
 
       <div className="resume-header-row p-anim">
         <div>
-          <div className="section-eyebrow">Background</div>
           <h2 className="sec-title">Resume</h2>
         </div>
         <a href="/resume.pdf" className="btn-outline">Download PDF</a>
