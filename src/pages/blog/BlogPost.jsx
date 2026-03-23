@@ -79,7 +79,7 @@ export default function BlogPost() {
         </div>
       ) : (
         <p style={{ color: 'var(--text-2)', fontSize: '.88rem', lineHeight: 1.8 }}>
-          No content yet — check back soon.
+          This page is still under construction. Check back later!.
         </p>
       )}
 
