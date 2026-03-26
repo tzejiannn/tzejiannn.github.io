@@ -72,15 +72,27 @@ export default function Projects() {
                   </div>
 
                   <div className="proj-links">
-                    <button
-                      className="p-link primary"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        navigate(`/projects/${p.slug}`)
-                      }}
-                    >
-                      Read more
-                    </button>
+                    {p.report ? (
+                      <a
+                        href={p.report}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="p-link primary"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        View Report
+                      </a>
+                    ) : (
+                      <button
+                        className="p-link primary"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          navigate(`/projects/${p.slug}`)
+                        }}
+                      >
+                        Read more
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

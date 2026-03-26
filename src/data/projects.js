@@ -16,7 +16,6 @@ const PROJECTS = [
     metrics: ['507 annotated images', '100 epochs', '640×640 resolution', '1 custom class', 'Ongoing'],
     stack: ['Python', 'PyTorch', 'YOLOv11', 'Ultralytics', 'OpenCV', 'Roboflow'],
     gh: '#',
-    demo: null,
   },
   {
     num: '02',
@@ -35,7 +34,6 @@ const PROJECTS = [
     metrics: ['75% time saved', 'First in APAC region', 'Automated ETL', 'Executive Dashboards'],
     stack: ['Python', 'PowerBI', 'Looker', 'Excel', 'ETL'],
     gh: null,
-    demo: null,
   },
   {
     num: '03',
@@ -73,8 +71,7 @@ const PROJECTS = [
             widening — attributing shifts to volatility regime changes and liquidity withdrawal.`,
     metrics: ['68,000+ option contracts', '5 equity tickers', '3 market phases', 'Liquidity asymmetry'],
     stack: ['Python', 'Pandas', 'MongoDB', 'REST API', 'Scikit-learn', 'Matplotlib'],
-    gh: '#',
-    demo: null,
+    gh: 'https://github.com/tzejiannn/tariff-shock-options-study',
   },
   {
     num: '05',
@@ -93,11 +90,10 @@ const PROJECTS = [
     metrics: ['575k+ reviews', '5 engineered features', 'SMOTE', '3 models benchmarked'],
     stack: ['Python', 'Scikit-learn', 'XGBoost', 'SMOTE', 'TF-IDF', 'spaCy', 'Pandas', 'Seaborn'],
     gh: '#',
-    demo: null,
   },
   {
     num: '06',
-    slug: 'fixed-income-derivatives-modeling',
+
     name: 'Fixed Income Derivatives Modeling',
     tagline: 'Custom VBA/Excel UDFs for derivative pricing, term structure modelling, and swap valuation on historical SOFR and LIBOR data.',
     badge: 'badge-orange',
@@ -109,14 +105,13 @@ const PROJECTS = [
             term structure modelling, and swap valuation. Conducted rigorous time-series
             and economic analysis on 10 years of historical data alongside forward term
             structure models.`,
-    metrics: ['3 custom UDFs', '10yr historical data', 'SOFR + LIBOR', 'Forward term structure'],
-    stack: ['Excel', 'VBA', 'SOFR Futures', 'CME Data', 'Global Rates'],
-    gh: '#',
-    demo: null,
+    metrics: ['3 Custom UDFs', '10 Years historical data', 'SOFR + LIBOR', 'Forward Term Structures'],
+    stack: ['Excel', 'VBA'],
+    report: '/fixed-income-derivatives/JoelAngTzeJian_QF3101AssignmentReport.pdf',
   },
 
-  
-  
+
+
 ]
 
 export default PROJECTS

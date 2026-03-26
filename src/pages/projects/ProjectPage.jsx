@@ -119,6 +119,11 @@ export default function ProjectPage() {
             Live demo
           </a>
         )}
+        {project.report && (
+          <a href={project.report} target="_blank" rel="noreferrer" className="p-link">
+            View Report
+          </a>
+        )}
       </div>
 
     </div>
