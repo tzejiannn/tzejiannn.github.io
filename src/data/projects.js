@@ -4,17 +4,17 @@ const PROJECTS = [
     num: '01',
     slug: 'frisbee-object-detection',
     name: 'Frisbee Object Detection',
-    tagline: 'Custom YOLOv11 model trained on a self-built 507-image dataset — from raw throwing footage to real-time disc detection.',
+    tagline: 'Custom YOLO26s model trained on a self-built 5.8k+ image dataset — from raw throwing footage to real-time disc detection.',
     badge: 'badge-blue',
     badgeLabel: 'ML / Computer Vision',
     year: 'Ongoing',
-    desc: `Built a real-time frisbee detection system from scratch — recorded throwing
-            videos, extracted frames with OpenCV, annotated 507 images on Roboflow, and
-            trained YOLOv11 for 100 epochs at 640x640 resolution. Motivated by the complete
-            absence of computer vision tooling for Ultimate Frisbee as a sport. Ongoing work
-            focuses on expanding the dataset and building a full match analysis pipeline.`,
-    metrics: ['507 annotated images', '100 epochs', '640×640 resolution', '1 custom class', 'Ongoing'],
-    stack: ['Python', 'PyTorch', 'YOLOv11', 'Ultralytics', 'OpenCV', 'Roboflow'],
+    desc: `Built a real-time frisbee detection system from scratch — recorded throwing footage,
+            extracted frames with OpenCV, and grew the dataset to 5.8k+ images through augmentation.
+            Trained YOLO26s for 100 epochs at 512×512 resolution. Motivated by the complete absence
+            of computer vision tooling for Ultimate Frisbee and the need for unsupervised coaching.
+            Ongoing work focuses on expanding the dataset and building a full match analysis pipeline.`,
+    metrics: ['5.8k+ images', '100 epochs', '512×512 resolution', '1 custom class', 'Ongoing'],
+    stack: ['Python', 'PyTorch', 'YOLO26s', 'Ultralytics', 'OpenCV', 'Roboflow'],
     gh: '#',
   },
   {
