@@ -95,18 +95,19 @@ const PROJECTS = [
     num: '06',
 
     name: 'Fixed Income Derivatives Modeling',
-    tagline: 'Custom VBA/Excel UDFs for derivative pricing, term structure modelling, and swap valuation on historical SOFR and LIBOR data.',
+    tagline: 'VBA/Excel toolkit for SOFR term structure construction, FRA pricing, and interest rate swap valuation using real market data.',
     badge: 'badge-orange',
     badgeLabel: 'Quant Finance',
     year: '2025',
-    desc: `Built a comprehensive fixed income derivatives toolkit in Excel and VBA.
-            Sourced SOFR Futures and historical USD LIBOR rates from CME and Global Rates,
-            then developed three custom User-Defined Functions covering derivative pricing,
-            term structure modelling, and swap valuation. Conducted rigorous time-series
-            and economic analysis on 10 years of historical data alongside forward term
-            structure models.`,
-    metrics: ['3 Custom UDFs', '10 Years historical data', 'SOFR + LIBOR', 'Forward Term Structures'],
-    stack: ['Excel', 'VBA'],
+    desc: `Built a comprehensive fixed income derivatives toolkit in Excel and VBA using
+            real market data from CME and historical USD LIBOR rates. Constructed implied
+            forward SOFR term structures from 38 quarterly futures contracts, priced 360
+            deferred FRA contracts across varying start and tenor combinations, and computed
+            one-year interest rate swap rates and tracked their monthly mark-to-market value.
+            All pricing implemented via custom VBA User-Defined Functions using the
+            actual/360 day count convention.`,
+    metrics: ['38 SOFR contracts', '360 FRA rates', '12 LIBOR maturities', 'Actual/360 convention'],
+    stack: ['Excel', 'VBA', 'CME SOFR Futures', 'USD LIBOR'],
     report: '/fixed-income-derivatives/JoelAngTzeJian_QF3101AssignmentReport.pdf',
   },
 
