@@ -13,7 +13,7 @@ const PROJECTS = [
             Trained YOLO26s for 100 epochs at 512×512 resolution. Motivated by the complete absence
             of computer vision tooling for Ultimate Frisbee and the need for unsupervised coaching.
             Ongoing work focuses on expanding the dataset and building a full match analysis pipeline.`,
-    metrics: ['5.8k+ images', '100 epochs', '512×512 resolution', '1 custom class', 'Ongoing'],
+    metrics: ['5.8k+ images', '95.3% Precision', '85.7% Recall', '90.2% mAP'],
     stack: ['Python', 'PyTorch', 'YOLO26s', 'Ultralytics', 'OpenCV', 'Roboflow'],
     gh: '#',
   },
