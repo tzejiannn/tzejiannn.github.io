@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 import Sidebar     from './components/Sidebar'
-import Home        from './components/panels/Home'
+import Home        from './components/panels/home'
 import Projects    from './components/panels/Projects'
 import Resume      from './components/panels/resume'
 import Blog        from './components/panels/Blog'
@@ -18,26 +18,65 @@ const PANELS = {
   contact:  Contact,
 }
 
-// This is the persistent layout — sidebar always visible on the left,
-// content area on the right. All routes render inside this shell.
-function Layout({ active, setActive, children }) {
+function Layout({ active, setActive, sidebarOpen, setSidebarOpen, children }) {
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
-      <Sidebar active={active} onChange={setActive} />
-      <main id="main">
-        {children}
-      </main>
+    <div className="layout-shell">
+
+      {/* Popout sidebar — slides in from left */}
+      <Sidebar
+        active={active}
+        onChange={setActive}
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
+
+      {/* Backdrop — click to close sidebar */}
+      {sidebarOpen && (
+        <div
+          className="sidebar-backdrop"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
+      {/* Main layout body — fills full width */}
+      <div className="layout-body">
+
+        {/* Persistent top bar */}
+        <header className="top-bar">
+          <button
+            className="hamburger-btn"
+            onClick={() => setSidebarOpen(true)}
+            aria-label="Open navigation"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+
+          <span className="top-bar-brand">Joel's Workspace</span>
+
+          <div className="top-bar-status">
+            Open to Opportunities
+          </div>
+        </header>
+
+        <main id="main">
+          {children}
+        </main>
+
+      </div>
     </div>
   )
 }
 
 export default function App() {
-  const [active, setActive] = useState('home')
+  const [active, setActive]           = useState('home')
+  const [sidebarOpen, setSidebarOpen] = useState(false)
   const navigate = useNavigate()
 
-  // When sidebar nav is clicked — switch panel and go back to home route
   function handleNav(id) {
     setActive(id)
+    setSidebarOpen(false)
     navigate('/')
   }
 
@@ -46,42 +85,46 @@ export default function App() {
   return (
     <Routes>
 
-      {/* Main portfolio — sidebar + active panel */}
       <Route
         path="/"
         element={
-          <Layout active={active} setActive={handleNav}>
+          <Layout
+            active={active}
+            setActive={handleNav}
+            sidebarOpen={sidebarOpen}
+            setSidebarOpen={setSidebarOpen}
+          >
             <Panel onNavigate={handleNav} />
           </Layout>
         }
       />
 
-      {/* Individual project pages — sidebar stays visible */}
       <Route
         path="/projects/:slug"
         element={
-          <Layout active={active} setActive={handleNav}>
-            <div style={{
-              height: '100vh',
-              overflowY: 'auto',
-              background: 'var(--navy)'
-            }}>
+          <Layout
+            active={active}
+            setActive={handleNav}
+            sidebarOpen={sidebarOpen}
+            setSidebarOpen={setSidebarOpen}
+          >
+            <div style={{ height: '100%', overflowY: 'auto', background: 'var(--bg)' }}>
               <ProjectPage />
             </div>
           </Layout>
         }
       />
 
-      {/* Individual blog post pages — sidebar stays visible */}
       <Route
         path="/blog/:slug"
         element={
-          <Layout active={active} setActive={handleNav}>
-            <div style={{
-              height: '100vh',
-              overflowY: 'auto',
-              background: 'var(--navy)'
-            }}>
+          <Layout
+            active={active}
+            setActive={handleNav}
+            sidebarOpen={sidebarOpen}
+            setSidebarOpen={setSidebarOpen}
+          >
+            <div style={{ height: '100%', overflowY: 'auto', background: 'var(--bg)' }}>
               <BlogPost />
             </div>
           </Layout>

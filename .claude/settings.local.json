@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx skills:*)",
+      "Bash(npm i:*)",
+      "Bash(node:*)",
+      "Bash(npx impeccable:*)",
+      "Read(//c/Users/BurnD/Downloads/**)",
+      "Bash(unzip -l stitch_sunlit_desk_portfolio.zip)",
+      "Bash(unzip -o stitch_sunlit_desk_portfolio.zip -d avatar_preview)",
+      "Bash(ls:*)",
+      "Bash(npx vite:*)"
+    ]
+  }
+}

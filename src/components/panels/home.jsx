@@ -1,97 +1,161 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
+import PROJECTS from '../../data/projects'
 
-const CYCLING_WORDS = [
-  'Data Scientist.',
-  'Quantitative Finance.',
-  'ML Engineer.',
-  'Problem Solver.',
-  'Computer Vision Dev.',
-  'Student Athlete',
-  'Data Storyteller.',
-]
+const carouselProjects = PROJECTS
 
 export default function Home({ onNavigate }) {
+  const navigate = useNavigate()
 
-  // wordIndex tracks which word we are currently showing
-  const [wordIndex, setWordIndex] = useState(0)
+  /* ── Carousel state ── */
+  const [activeSlide, setActiveSlide] = useState(0)
+  const autoplayRef  = useRef(null)
+  const trackRef     = useRef(null)
 
-  // visible controls whether the word is faded in or faded out
-  // We set it to false briefly to trigger the fade-out,
-  // swap the word, then set it back to true to fade back in
-  const [visible, setVisible] = useState(true)
-
-  useEffect(() => {
-    // Every 2.5 seconds, cycle to the next word
-    const interval = setInterval(() => {
-
-      // Step 1 — fade the current word out
-      setVisible(false)
-
-      // Step 2 — after 400ms (long enough for fade-out to finish),
-      // swap to the next word and fade back in
-      setTimeout(() => {
-        setWordIndex(prev => (prev + 1) % CYCLING_WORDS.length)
-        setVisible(true)
-      }, 400)
-
-    }, 2500)
-
-    // Cleanup — stop the interval if the component unmounts
-    return () => clearInterval(interval)
+  const goToSlide = useCallback((idx) => {
+    setActiveSlide(idx)
   }, [])
+
+  const nextSlide = useCallback(() => {
+    setActiveSlide(prev => (prev + 1) % carouselProjects.length)
+  }, [])
+
+  const prevSlide = useCallback(() => {
+    setActiveSlide(prev => (prev - 1 + carouselProjects.length) % carouselProjects.length)
+  }, [])
+
+  // Autoplay
+  useEffect(() => {
+    autoplayRef.current = setInterval(nextSlide, 4500)
+    return () => clearInterval(autoplayRef.current)
+  }, [nextSlide])
+
+  // Pause autoplay on hover
+  const pauseAutoplay = () => clearInterval(autoplayRef.current)
+  const resumeAutoplay = () => {
+    clearInterval(autoplayRef.current)
+    autoplayRef.current = setInterval(nextSlide, 4500)
+  }
 
   return (
     <section className="panel active" id="panel-home">
 
-      {/* Hero area */}
-      <div className="home-hero p-anim">
+      {/* ── Hero ── */}
+      <div className="home-hero">
 
-        {/* Decorative green glow blob in the top right corner */}
-        <div className="hero-glow" />
+        {/* Left — name, bio, CTAs */}
+        <div className="hero-left p-anim">
 
-        {/* Main heading with cycling word */}
-        <h1 className="page-title">
-          Hi, I'm Joel.<br />
-          <em>
-            {/* Static prefix */}
-            {' '}
+          <p className="hero-eyebrow">
+            NUS · Data Science &amp; Analytics · Singapore
+          </p>
 
-            {/* The cycling word — className swaps between visible and hidden
-                which triggers the CSS fade transition */}
-            <span className={`cycle-word ${visible ? 'visible' : 'hidden'}`}>
-              {CYCLING_WORDS[wordIndex]}
-            </span>
-          </em>
-        </h1>
+          <h1 className="hero-name">
+            Hi, I'm Joel.
+          </h1>
 
-        {/* Bio paragraph
-            TODO: update with your real bio */}
-        <p className="hero-desc">
-          Final-year <strong>Data Science & Analytics</strong> undergraduate
-          at NUS with a Minor in Quantitative Finance, graduating Dec 2026.
-          Currently interning at <strong>FreeWheel Comcast</strong> building
-          APAC data pipelines and dashboards. Passionate about ML, computer vision, and
-          applying data science to financial markets.
-        </p>
+          <p className="hero-desc">
+            Final-year Data Science undergrad at NUS, minor in Quantitative Finance, graduating Dec 2026.
+            I build ML pipelines that replace manual workflows — predictive modelling, anomaly detection, and applied AI for real-world operations.
+          </p>
 
-        {/* CTA buttons */}
-        <div className="hero-cta-row">
-          <button
-            className="btn-solid"
-            onClick={() => onNavigate('projects')}
-          >
-            View my work →
-          </button>
-          <button
-            className="btn-outline"
-            onClick={() => onNavigate('contact')}
-          >
-            Get in touch
-          </button>
+          <div className="hero-cta-row">
+            <button
+              className="btn-solid"
+              onClick={() => onNavigate('projects')}
+            >
+              View my work →
+            </button>
+            <button
+              className="btn-outline"
+              onClick={() => onNavigate('contact')}
+            >
+              Get in touch
+            </button>
+          </div>
+
+        </div>
+
+        {/* Right — static avatar illustration */}
+        <div className="hero-right p-anim">
+          <img
+            src="/avatar.svg"
+            alt="Joel working at his desk"
+            className="hero-avatar"
+            draggable="false"
+          />
         </div>
 
       </div>
-      
+
+      {/* ── Selected Work — Carousel ── */}
+      <div className="carousel-section p-anim">
+
+        <div className="carousel-header">
+          <p className="hero-recent-label">some of my work</p>
+          <div className="carousel-nav">
+            <button className="carousel-arrow" onClick={prevSlide} aria-label="Previous project">←</button>
+            <span className="carousel-counter">
+              {String(activeSlide + 1).padStart(2, '0')} / {String(carouselProjects.length).padStart(2, '0')}
+            </span>
+            <button className="carousel-arrow" onClick={nextSlide} aria-label="Next project">→</button>
+          </div>
+          <button
+            className="hero-see-all"
+            onClick={() => onNavigate('projects')}
+          >
+            All projects →
+          </button>
+        </div>
+
+        <div
+          className="carousel-track-wrapper"
+          onMouseEnter={pauseAutoplay}
+          onMouseLeave={resumeAutoplay}
+        >
+          <div
+            className="carousel-track"
+            ref={trackRef}
+            style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+          >
+            {carouselProjects.map((p, i) => (
+              <button
+                key={p.num}
+                className={`carousel-slide ${i === activeSlide ? 'active' : ''}`}
+                onClick={() => p.slug ? navigate(`/projects/${p.slug}`) : onNavigate('projects')}
+              >
+                <div
+                  className="carousel-slide-bg"
+                  style={p.cover ? { backgroundImage: `url(${p.cover})` } : undefined}
+                />
+                <div className="carousel-slide-overlay" />
+                <div className="carousel-slide-content">
+                  <span className="carousel-slide-num">{p.num}</span>
+                  <div className="carousel-slide-info">
+                    <span className="carousel-slide-badge">{p.badgeLabel}</span>
+                    <h3 className="carousel-slide-name">{p.name}</h3>
+                    <p className="carousel-slide-tagline">{p.tagline}</p>
+                  </div>
+                  <span className="carousel-slide-year">{p.year}</span>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Dot indicators */}
+        <div className="carousel-dots">
+          {carouselProjects.map((_, i) => (
+            <button
+              key={i}
+              className={`carousel-dot ${i === activeSlide ? 'active' : ''}`}
+              onClick={() => goToSlide(i)}
+              aria-label={`Go to project ${i + 1}`}
+            />
+          ))}
+        </div>
+
+      </div>
 
     </section>
   )

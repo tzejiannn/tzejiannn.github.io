@@ -3,6 +3,7 @@ const PROJECTS = [
   {
     num: '01',
     slug: 'frisbee-object-detection',
+    cover: '/covers/frisbee.jpg',
     name: 'Frisbee Object Detection',
     tagline: 'Custom YOLO26s model trained on a self-built 5.8k+ image dataset — from raw throwing footage to real-time disc detection.',
     badge: 'badge-blue',
@@ -20,6 +21,7 @@ const PROJECTS = [
   {
     num: '02',
     slug: 'freewheel-apac-data-architecture',
+    cover: '/covers/freewheel.jpg',
     name: 'FreeWheel APAC Revenue Dashboard',
     tagline: 'Built the first APAC Revenue Dashboard for FreeWheel APAC. Automated ETL, Looker/Excel Dashboards and cut manual processing time by 75%.',
     badge: 'badge-green',
@@ -38,6 +40,7 @@ const PROJECTS = [
   {
     num: '03',
     slug: 'website',
+    cover: '/covers/portfolio.jpg',
     name: 'Personal Portfolio Website',
     tagline: 'Designed and built a fully custom portfolio from scratch using React, Vite, and custom CSS — deployed on GitHub Pages.',
     badge: 'badge-purple',
@@ -57,6 +60,7 @@ const PROJECTS = [
   {
     num: '04',
     slug: 'option-market-microstructure-analysis',
+    cover: '/covers/options.jpg',
     name: 'Options Market Microstructure Study: 2025 US Tariff Shock',
     tagline: 'Quantifying liquidity asymmetry and bid-ask spread drivers across 68,000+ option contracts during the 2025 US tariff shock.',
     badge: 'badge-orange',
@@ -76,6 +80,7 @@ const PROJECTS = [
   {
     num: '05',
     slug: 'imdb-spoiler-detection',
+    cover: '/covers/imdb.jpg',
     name: 'IMDb Spoiler Detection',
     tagline: 'ML classifier detecting spoiler reviews across 575k+ IMDb reviews using NLP and behavioural features.',
     badge: 'badge-blue',
@@ -93,7 +98,8 @@ const PROJECTS = [
   },
   {
     num: '06',
-
+    slug: 'fixed-income-derivatives',
+    cover: '/covers/fixed-income.jpg',
     name: 'Fixed Income Derivatives Modeling',
     tagline: 'VBA/Excel toolkit for SOFR term structure construction, FRA pricing, and interest rate swap valuation using real market data.',
     badge: 'badge-orange',
