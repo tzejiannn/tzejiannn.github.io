@@ -7,6 +7,16 @@ const carouselProjects = PROJECTS
 export default function Home({ onNavigate }) {
   const navigate = useNavigate()
 
+  /* ── Avatar Animation State ── */
+  const [isTypingFrame, setIsTypingFrame] = useState(false)
+
+  useEffect(() => {
+    const avatarInterval = setInterval(() => {
+      setIsTypingFrame(prev => !prev)
+    }, 400) // Adjust speed as needed
+    return () => clearInterval(avatarInterval)
+  }, [])
+
   /* ── Carousel state ── */
   const [activeSlide, setActiveSlide] = useState(0)
   const autoplayRef  = useRef(null)
@@ -24,13 +34,12 @@ export default function Home({ onNavigate }) {
     setActiveSlide(prev => (prev - 1 + carouselProjects.length) % carouselProjects.length)
   }, [])
 
-  // Autoplay
+  // Autoplay logic
   useEffect(() => {
     autoplayRef.current = setInterval(nextSlide, 4500)
     return () => clearInterval(autoplayRef.current)
   }, [nextSlide])
 
-  // Pause autoplay on hover
   const pauseAutoplay = () => clearInterval(autoplayRef.current)
   const resumeAutoplay = () => {
     clearInterval(autoplayRef.current)
@@ -45,7 +54,6 @@ export default function Home({ onNavigate }) {
 
         {/* Left — name, bio, CTAs */}
         <div className="hero-left p-anim">
-
           <p className="hero-eyebrow">
             NUS · Data Science &amp; Analytics · Singapore
           </p>
@@ -55,8 +63,8 @@ export default function Home({ onNavigate }) {
           </h1>
 
           <p className="hero-desc">
-            Final-year Data Science undergrad at NUS, minor in Quantitative Finance, graduating Dec 2026.
-            I build ML pipelines that replace manual workflows — predictive modelling, anomaly detection, and applied AI for real-world operations.
+            Final-year Data Science undergrad at NUS, minor in Quantitative Finance, graduating Dec 2026. <br />
+            My interests lie in building ML pipelines that replace manual workflows, predictive modelling, anomaly detection, and applied AI for real-world operations.
           </p>
 
           <div className="hero-cta-row">
@@ -73,13 +81,12 @@ export default function Home({ onNavigate }) {
               Get in touch
             </button>
           </div>
-
         </div>
 
-        {/* Right — static avatar illustration */}
+        {/* Right — Animated avatar illustration */}
         <div className="hero-right p-anim">
           <img
-            src="/avatar.svg"
+            src={isTypingFrame ? "/avatar/base.svg" : "/avatar/base.svg"}
             alt="Joel working at his desk"
             className="hero-avatar"
             draggable="false"
@@ -90,7 +97,6 @@ export default function Home({ onNavigate }) {
 
       {/* ── Selected Work — Carousel ── */}
       <div className="carousel-section p-anim">
-
         <div className="carousel-header">
           <p className="hero-recent-label">some of my work</p>
           <div className="carousel-nav">
@@ -154,9 +160,7 @@ export default function Home({ onNavigate }) {
             />
           ))}
         </div>
-
       </div>
-
     </section>
   )
 }

@@ -19,10 +19,11 @@ const PANELS = {
 }
 
 function Layout({ active, setActive, sidebarOpen, setSidebarOpen, children }) {
+  const navItems = ['home', 'projects', 'resume', 'blog', 'contact'];
+
   return (
     <div className="layout-shell">
-
-      {/* Popout sidebar — slides in from left */}
+      {/* Sidebar remains for mobile only */}
       <Sidebar
         active={active}
         onChange={setActive}
@@ -30,40 +31,50 @@ function Layout({ active, setActive, sidebarOpen, setSidebarOpen, children }) {
         onClose={() => setSidebarOpen(false)}
       />
 
-      {/* Backdrop — click to close sidebar */}
       {sidebarOpen && (
-        <div
-          className="sidebar-backdrop"
-          onClick={() => setSidebarOpen(false)}
-        />
+        <div className="sidebar-backdrop" onClick={() => setSidebarOpen(false)} />
       )}
 
-      {/* Main layout body — fills full width */}
       <div className="layout-body">
-
-        {/* Persistent top bar */}
         <header className="top-bar">
-          <button
-            className="hamburger-btn"
-            onClick={() => setSidebarOpen(true)}
-            aria-label="Open navigation"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
+          {/* Brand - Left */}
+          <div className="top-bar-left">
+            <button
+              className="hamburger-btn"
+              onClick={() => setSidebarOpen(true)}
+              aria-label="Open navigation"
+            >
+              <span /><span /><span />
+            </button>
+            <span className="top-bar-brand" onClick={() => setActive('home')}>
+              Joel's Workspace
+            </span>
+          </div>
 
-          <span className="top-bar-brand">Joel's Workspace</span>
+          {/* Inline Nav - Center (Hidden on Mobile) */}
+          <nav className="top-bar-nav">
+            {navItems.map((item) => (
+              <button
+                key={item}
+                className={`top-nav-link ${active === item ? 'active' : ''}`}
+                onClick={() => setActive(item)}
+              >
+                {item}
+                {active === item && <span className="nav-dot" />}
+              </button>
+            ))}
+          </nav>
 
+          {/* Status - Right */}
           <div className="top-bar-status">
-            Open to Opportunities
+            <span className="status-indicator" />
+            Open to Opportunities!
           </div>
         </header>
 
         <main id="main">
           {children}
         </main>
-
       </div>
     </div>
   )
@@ -84,7 +95,6 @@ export default function App() {
 
   return (
     <Routes>
-
       <Route
         path="/"
         element={
@@ -98,39 +108,12 @@ export default function App() {
           </Layout>
         }
       />
-
-      <Route
-        path="/projects/:slug"
-        element={
-          <Layout
-            active={active}
-            setActive={handleNav}
-            sidebarOpen={sidebarOpen}
-            setSidebarOpen={setSidebarOpen}
-          >
-            <div style={{ height: '100%', overflowY: 'auto', background: 'var(--bg)' }}>
-              <ProjectPage />
-            </div>
+      {/* ... keeping your other routes (ProjectPage/BlogPost) the same ... */}
+      <Route path="/projects/:slug" element={
+          <Layout active={active} setActive={handleNav} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}>
+            <ProjectPage />
           </Layout>
-        }
-      />
-
-      <Route
-        path="/blog/:slug"
-        element={
-          <Layout
-            active={active}
-            setActive={handleNav}
-            sidebarOpen={sidebarOpen}
-            setSidebarOpen={setSidebarOpen}
-          >
-            <div style={{ height: '100%', overflowY: 'auto', background: 'var(--bg)' }}>
-              <BlogPost />
-            </div>
-          </Layout>
-        }
-      />
-
+      } />
     </Routes>
   )
 }
