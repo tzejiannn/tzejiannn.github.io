@@ -8,14 +8,36 @@ export default function Home({ onNavigate }) {
   const navigate = useNavigate()
 
   /* ── Avatar Animation State ── */
-  const [isTypingFrame, setIsTypingFrame] = useState(false)
+  const avatarFrames = [
+    { src: '/avatar/type1.png', duration: 150 },
+    { src: '/avatar/type2.png', duration: 150 },
+    { src: '/avatar/type1.png', duration: 150 },
+    { src: '/avatar/type2.png', duration: 150 },
+    { src: '/avatar/type1.png', duration: 150 },
+    { src: '/avatar/type2.png', duration: 150 },
+    { src: '/avatar/type1.png', duration: 150 },
+    { src: '/avatar/type2.png', duration: 150 },
+    { src: '/avatar/type1.png', duration: 150 },
+    { src: '/avatar/type2.png', duration: 150 },
+    { src: '/avatar/type1.png', duration: 150 },
+    { src: '/avatar/type2.png', duration: 150 },
+    { src: '/avatar/type1.png', duration: 150 },
+    { src: '/avatar/type2.png', duration: 150 },
+    { src: '/avatar/type1.png', duration: 150 },
+    { src: '/avatar/type2.png', duration: 150 },
+    { src: '/avatar/type1.png', duration: 150 },
+    { src: '/avatar/type2.png', duration: 150 },
+    { src: '/avatar/type3.png', duration: 1800 },
+  ]
+  const [frameIndex, setFrameIndex] = useState(0)
 
   useEffect(() => {
-    const avatarInterval = setInterval(() => {
-      setIsTypingFrame(prev => !prev)
-    }, 400) // Adjust speed as needed
-    return () => clearInterval(avatarInterval)
-  }, [])
+    const { duration } = avatarFrames[frameIndex]
+    const t = setTimeout(() => {
+      setFrameIndex(prev => (prev + 1) % avatarFrames.length)
+    }, duration)
+    return () => clearTimeout(t)
+  }, [frameIndex])
 
   /* ── Carousel state ── */
   const [activeSlide, setActiveSlide] = useState(0)
@@ -86,7 +108,7 @@ export default function Home({ onNavigate }) {
         {/* Right — Animated avatar illustration */}
         <div className="hero-right p-anim">
           <img
-            src={isTypingFrame ? "/avatar/base.svg" : "/avatar/base.svg"}
+            src={avatarFrames[frameIndex].src}
             alt="Joel working at his desk"
             className="hero-avatar"
             draggable="false"

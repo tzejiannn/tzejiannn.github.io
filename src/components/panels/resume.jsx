@@ -5,9 +5,8 @@ function EntryList({ entries }) {
     <div className="resume-entries">
       {entries.map((entry, i) => (
         <div key={i} className="resume-entry">
-          <div className="entry-period">{entry.period}</div>
           <div className="entry-role">{entry.role}</div>
-          <div className="entry-org">{entry.org}</div>
+          <div className="entry-meta">{entry.org} · {entry.period}</div>
           {entry.pts.length > 0 && (
             <ul className="entry-pts">
               {entry.pts.map((pt, j) => (
@@ -30,35 +29,30 @@ export default function Resume() {
         <a href="/resume.pdf" className="btn-outline">Download PDF</a>
       </div>
 
-      {/* Panel layout: bento left + avatar col right */}
-      <div className="resume-panel-layout p-anim">
+      <div className="resume-doc p-anim">
 
-        <div className="resume-bento">
+        <div className="resume-sections">
 
-          {/* Experience — spans both rows, left column */}
-          <div className="resume-cell resume-exp">
-            <h3 className="resume-cell-title">Experience</h3>
+          <div className="resume-section">
+            <h3 className="resume-sec-label">Experience</h3>
             <EntryList entries={EXPERIENCE} />
           </div>
 
-          {/* Education — top right */}
-          <div className="resume-cell resume-edu">
-            <h3 className="resume-cell-title">Education</h3>
+          <div className="resume-section">
+            <h3 className="resume-sec-label">Education</h3>
             <EntryList entries={EDUCATION} />
           </div>
 
-          {/* Leadership — bottom right */}
-          <div className="resume-cell resume-lead">
-            <h3 className="resume-cell-title">Leadership</h3>
+          <div className="resume-section">
+            <h3 className="resume-sec-label">Leadership</h3>
             <EntryList entries={LEADERSHIP} />
           </div>
 
         </div>
 
-        {/* Avatar column */}
-        <div className="resume-avatar-col">
-          <img src="/avatar/resume.png" alt="Joel" className="resume-avatar" draggable="false" />
-        </div>
+        {/* Avatar column — placeholder */}
+        <div className="resume-avatar-col" />
+
       </div>
 
     </section>
