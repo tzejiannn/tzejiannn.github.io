@@ -3,104 +3,155 @@ import { useNavigate } from 'react-router-dom'
 import PROJECTS from '../../data/projects'
 
 export default function Projects() {
-  const [open, setOpen] = useState(null)
+  const [selected, setSelected] = useState(PROJECTS[0].num)
+  const [mobileOpen, setMobileOpen] = useState(null)
   const navigate = useNavigate()
 
-  function toggle(num) {
-    setOpen(open === num ? null : num)
+  const active = PROJECTS.find(p => p.num === selected)
+
+  function handleMobileToggle(num) {
+    setMobileOpen(prev => prev === num ? null : num)
+  }
+
+  function renderActions(p) {
+    return (
+      <div className="preview-actions">
+        {p.report ? (
+          <a href={p.report} target="_blank" rel="noreferrer" className="p-link primary">
+            View Report
+          </a>
+        ) : (
+          <button
+            className="p-link primary"
+            onClick={e => { e.stopPropagation(); navigate(`/projects/${p.slug}`) }}
+          >
+            Read more
+          </button>
+        )}
+        {p.gh && p.gh !== '#' && (
+          <a href={p.gh} target="_blank" rel="noreferrer" className="p-link">
+            GitHub
+          </a>
+        )}
+        {p.demo && (
+          <a href={p.demo} target="_blank" rel="noreferrer" className="p-link">
+            Live Demo
+          </a>
+        )}
+      </div>
+    )
   }
 
   return (
     <section className="panel active" id="panel-projects">
+      <h2 className="sec-title p-anim" style={{ marginBottom: '1.25rem' }}>Projects</h2>
 
-      <h2 className="sec-title p-anim">Projects</h2>
+      {/* ── Desktop: two-col panel (explorer + avatar space) ── */}
+      <div className="proj-panel-layout p-anim">
 
-      <p className="lead p-anim" style={{ marginBottom: '2rem' }}>
-        Projects I've had the pleasure of working on. 
-        Click any project to read more.
-      </p>
+        {/* File explorer */}
+        <div className="proj-explorer">
 
-      <div className="projects-list p-anim">
-        {PROJECTS.map(p => (
-          <div
-            key={p.num}
-            className={`proj-row ${open === p.num ? 'open' : ''}`}
-          >
-
-            <div className="proj-header" onClick={() => toggle(p.num)}>
-              <span className="proj-num">{p.num}</span>
-              <div className="proj-info">
-                <div className="proj-name">{p.name}</div>
-                <div className="proj-tagline">{p.tagline}</div>
-              </div>
-              <div className="proj-right">
-                <span className={`proj-type-badge ${p.badge}`}>
-                  {p.badgeLabel}
-                </span>
-                <span className="proj-year">{p.year}</span>
-                <div className="proj-toggle">+</div>
-              </div>
-            </div>
-
-            <div className="proj-body">
-              <div className="proj-body-inner">
-
-                <p className="proj-desc">{p.desc}</p>
-
-                <div className="proj-details">
-
-                  <div>
-                    <div style={{ fontSize: '.65rem', fontWeight: 600, letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-3)', marginBottom: '.5rem' }}>
-                      Results
+          {/* Left: Folder list */}
+          <div className="proj-folders">
+            <div className="proj-folder-list">
+              {PROJECTS.map(p => (
+                <button
+                  key={p.num}
+                  className={`proj-folder${selected === p.num ? ' active' : ''}`}
+                  onClick={() => setSelected(p.num)}
+                >
+                  <div className="folder-body">
+                    <span className="folder-num">{p.num}</span>
+                    <div className="folder-info">
+                      <span className="folder-name">{p.name}</span>
+                      <span className="folder-type">{p.badgeLabel}</span>
                     </div>
-                    <div className="proj-metrics">
-                      {p.metrics.map(m => (
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: Preview pane */}
+          <div className="proj-preview">
+            {active && (
+              <div className="proj-preview-inner" key={active.num}>
+                <div className="preview-top">
+                  <span className={`proj-type-badge ${active.badge}`}>{active.badgeLabel}</span>
+                  <span className="preview-year">{active.year}</span>
+                </div>
+                <h3 className="preview-title">{active.name}</h3>
+                <p className="preview-tagline">{active.tagline}</p>
+                <p className="preview-desc">{active.desc}</p>
+                <div className="preview-meta">
+                  <div>
+                    <div className="preview-label">Results</div>
+                    <div className="preview-chips">
+                      {active.metrics.map(m => (
                         <span key={m} className="p-metric">{m}</span>
                       ))}
                     </div>
                   </div>
-
                   <div>
-                    <div style={{ fontSize: '.65rem', fontWeight: 600, letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-3)', marginBottom: '.5rem' }}>
-                      Stack
-                    </div>
-                    <div className="proj-stack">
-                      {p.stack.map(t => (
+                    <div className="preview-label">Stack</div>
+                    <div className="preview-chips">
+                      {active.stack.map(t => (
                         <span key={t} className="p-tag">{t}</span>
                       ))}
                     </div>
                   </div>
+                </div>
+                {renderActions(active)}
+              </div>
+            )}
+          </div>
+        </div>
 
-                  <div className="proj-links">
-                    {p.report ? (
-                      <a
-                        href={p.report}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="p-link primary"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        View Report
-                      </a>
-                    ) : (
-                      <button
-                        className="p-link primary"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          navigate(`/projects/${p.slug}`)
-                        }}
-                      >
-                        Read more
-                      </button>
-                    )}
+        {/* Avatar column — whitespace reserved, avatar goes here */}
+        <div className="proj-avatar-col" />
+      </div>
+
+      {/* ── Mobile: Folder accordion ── */}
+      <div className="proj-mobile-list p-anim">
+        {PROJECTS.map(p => (
+          <div
+            key={p.num}
+            className={`proj-mob-folder${mobileOpen === p.num ? ' open' : ''}`}
+          >
+            <button className="proj-mob-header" onClick={() => handleMobileToggle(p.num)}>
+              <div className="folder-header-row">
+                <span className="folder-num">{p.num}</span>
+                <div className="folder-info">
+                  <span className="folder-name">{p.name}</span>
+                  <span className="folder-type">{p.badgeLabel}</span>
+                </div>
+                <span className="proj-mob-toggle">{mobileOpen === p.num ? '−' : '+'}</span>
+              </div>
+            </button>
+            <div className="proj-mob-body">
+              <div className="proj-mob-inner">
+                <p className="preview-desc" style={{ marginBottom: 0 }}>{p.desc}</p>
+                <div className="preview-meta" style={{ marginBottom: 0 }}>
+                  <div>
+                    <div className="preview-label">Results</div>
+                    <div className="preview-chips">
+                      {p.metrics.map(m => <span key={m} className="p-metric">{m}</span>)}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="preview-label">Stack</div>
+                    <div className="preview-chips">
+                      {p.stack.map(t => <span key={t} className="p-tag">{t}</span>)}
+                    </div>
                   </div>
                 </div>
+                {renderActions(p)}
               </div>
             </div>
           </div>
         ))}
       </div>
-
     </section>
   )
 }

@@ -9,7 +9,8 @@
       "Bash(unzip -l stitch_sunlit_desk_portfolio.zip)",
       "Bash(unzip -o stitch_sunlit_desk_portfolio.zip -d avatar_preview)",
       "Bash(ls:*)",
-      "Bash(npx vite:*)"
+      "Bash(npx vite:*)",
+      "Bash(npm install:*)"
     ]
   }
 }
